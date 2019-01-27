@@ -7,9 +7,11 @@ We would like to claim the **Reusable** and **Available** badges. We believe our
 
 # Reasons to publish AutoTap
 We wish to make our code and data publicly available because of the following reasons:
-## This provides an intuition of AutoTap's technique.
-We wish our web application could provide a sense of what AutoTap is doing. For example, from the web application, users can easily know what properties AutoTap handles, and what is the rule format.
-## We want to provide data for researchers in the same area.
-Getting trigger-actoin programs written by real end-users is hard. Trigger-action program for novice end-users is still in its early stage commercially. Most such programs available is from APP markets and is written by professional programmers. Moreover, it is hard to do field studies in people's smart homes because of privacy issues.
+## This provides an intuition of AutoTap techniques and functionality.
+We wish our web application could provide a sense of what AutoTap is offering. For example, from the web application, users can easily know what properties can be handled by AutoTap, what is AutoTap's rule synthesis capability, etc.
+## We want to provide code and data for researchers in the same area.
+Getting trigger-actoin programs written by real end-users is hard. Trigger-action programs for novice end-users is still in its early stage commercially. Most such programs that are publicly available are from APP markets and are written by professional programmers. Moreover, it is hard to do field studies in people's smart homes because of privacy issues.
 
-Our data contains TAP programs written by participants which is a valuable resource for researchers in this domain, and we would like to make those data available to reduce other reseachers' efforts of collecting data. 
+Our data contains TAP programs written by a good number of non-technical end users which is a valuable resource for researchers in this domain, and we would like to make those data available to reduce other reseachers' efforts of collecting data. 
+
+We also hope the source code of AutoTap can be of use for other researchers.
