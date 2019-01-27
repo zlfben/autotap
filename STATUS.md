@@ -1,8 +1,8 @@
 # Badges to apply for
 We would like to claim the **Reusable** and **Available** badges. We believe our artifact satisfies the following requirements, and thus deserves the badges we are applying for.
- - Functional: We use AutoTap to synthesize rules based on real-world user-written properties from our user study. AutoTap's ability of verifying existing rules against properties is also tested. Therefore, we believe our tool is functional.
- - Documented: We provide instructions and examples to set up and use AutoTap in README.md. We also provide a tutorial of AutoTap which we used in our user study [survey.pdf](./data/survey.pdf). Our user study shows that those documents provide sufficient understandings for novice users to achieve tasks we provided.
- - Reuseable for re-purposing: We release our code and some of the data from the user study. Researchers in the same area could modify our code as well as to re-use our collected data from the user study.
+ - Functional: As reviewers can see, AutoTap provides an easy-to-use interface for users to specify their desired properties for smart devices at home. AutoTap can automatically verify whether any provided TAP program satisfies the specified properties and, if not, synthesize rules to satisfy these properties, as well as displaying the synthesized rules to users. We believe it is a functional tool.
+ - Documented: We provide instructions and examples to set up and use AutoTap in README.md. We also provide a tutorial of AutoTap which we used in our user study [survey.pdf](./data/survey.pdf). Our user study shows that those documents provide sufficient understandings for novice users to accomplish tasks we provided.
+ - Reuseable for re-purposing: We release our AutoTap source code and some of the data from the user study. Researchers in the same area could modify our code as well as to re-use our collected data from the user study.
  - Publicly available: Our tool is open-source and publicly available under GPLv3 license.
 
 # Reasons to publish AutoTap
