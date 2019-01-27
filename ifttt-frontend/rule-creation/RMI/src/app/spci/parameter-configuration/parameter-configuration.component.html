@@ -1,0 +1,98 @@
+<div class="top">
+    <div class="back" (click)="leaveMeta()">←</div>
+    <h1>Configure <em>{{selectedCapability.name}}</em></h1>
+</div>
+
+<!-- if we have options, do them! -->
+<div class="container">
+    <div class="values" *ngIf="parameters">
+        <div class="text formField" *ngFor="let selector of labelSelectors, let i = index">
+            {{labelText[i]}}
+            <div [ngSwitch]="selector[1]">
+                <div *ngSwitchCase="'choice'">
+                    <mat-select [placeholder]="selector[2][0].display" [(ngModel)]="parameterVals[selector[3]].comparator" class="space">
+                        <mat-option *ngFor="let labelSelector of selector[2]" [value]="labelSelector.value">
+                            {{labelSelector.display}}
+                        </mat-option>
+                    </mat-select>
+                </div>
+                <div *ngSwitchCase="'binChoice'">
+                    <mat-select [placeholder]="parameters[selector[3]].name" [(ngModel)]="parameterVals[selector[3]].value" class="space">
+                        <mat-option *ngFor="let labelSelector of selector[2]" [value]="labelSelector.value">
+                            {{labelSelector.display}}
+                        </mat-option>
+                    </mat-select>
+                </div>
+                <div *ngSwitchCase="'value'">
+                    <div *ngIf="selector[2] == 'bin'">
+                        <mat-select [placeholder]="parameters[selector[3]].name" [(ngModel)]="parameterVals[selector[3]].value">
+                            <mat-option *ngFor="let parameter of parameters[selector[3]].values, let i = index" [value]="parameter">
+                                {{parameter}}
+                            </mat-option>
+                        </mat-select>
+                    </div>
+                    <div *ngIf="selector[2] == 'set'">
+                            <mat-select [placeholder]="parameters[selector[3]].name" [(ngModel)]="parameterVals[selector[3]].value">
+                                <mat-option *ngFor="let parameter of parameters[selector[3]].values, let i = index" [value]="parameter">
+                                    {{parameter}}
+                                </mat-option>
+                            </mat-select>
+                        </div>
+                    <div *ngIf="selector[2] == 'range'" class="rangediv">
+                        <mat-slider
+                            [min]="parameters[selector[3]].values[0]"
+                            [max]="parameters[selector[3]].values[1]"
+                            [step]="parameters[selector[3]].values[2]"
+                            thumbLabel
+                            class="slider"
+                            [(ngModel)]="parameterVals[selector[3]].value"
+                        ></mat-slider>
+                    </div>
+                    <div *ngIf="selector[2] == 'input'" class="inputdiv">
+                        <div *ngIf="parameters[selector[3]].values[0] == 'stxt'" class="input">
+                            <input matInput class="text" [(ngModel)]="parameterVals[selector[3]].value">
+                        </div>
+                        <div *ngIf="parameters[selector[3]].values[0] == 'ltxt'" class="input">
+                            <textarea matInput class="text" [(ngModel)]="parameterVals[selector[3]].value"></textarea>
+                        </div>
+                        <div *ngIf="parameters[selector[3]].values[0] == 'int'" class="input">
+                            <input matInput type="number" class="text" [(ngModel)]="parameterVals[selector[3]].value">
+                        </div>
+                        <div *ngIf="parameters[selector[3]].values[0] == 'color'" class="input">
+                            <input matInput type="color" [(ngModel)]="parameterVals[selector[3]].value">
+                        </div>
+                    </div>
+                    <div *ngIf="selector[2] == 'time'" class="inputdiv">
+                        <input matInput type="time" class ='input' [(ngModel)]="parameterVals[selector[3]].value">
+                    </div>
+                    <div *ngIf="selector[2] == 'duration'" class="time-selector-wrapper">
+                        <input matInput min="0" max="23"
+                        class="time-selector" type="number" [(ngModel)]="parameterVals[selector[3]].value.hours">h
+                        <input matInput min="0" max="59"
+                        class="time-selector" type="number" [(ngModel)]="parameterVals[selector[3]].value.minutes">m
+                        <input matInput min="0" max="59"
+                        class="time-selector" type="number" [(ngModel)]="parameterVals[selector[3]].value.seconds">s
+                    </div>
+                    <div *ngIf="selector[2] == 'meta' && parameters[selector[3]].values[0] == true" 
+                    (click)="selectHistoryClauseGate(selector[3], 'event')"
+                    [ngSwitch]="parameterVals[selector[3]].value"
+                    class="time-selector-wrapper space">
+                        <span *ngSwitchCase="''">This</span>
+                        <span *ngSwitchDefault>{{parameterVals[selector[3]].value.text}}</span>
+                    </div>
+                    <div *ngIf="selector[2] == 'meta' && parameters[selector[3]].values[0] == false" 
+                    (click)="selectHistoryClauseGate(selector[3], 'state')"
+                    [ngSwitch]="parameterVals[selector[3]].value"
+                    class="time-selector-wrapper space">
+                        <span *ngSwitchCase="''">This</span>
+                        <span *ngSwitchDefault>{{parameterVals[selector[3]].value.text}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="labelText.length > labelSelectors.length" class="text formField">
+            {{labelText[labelText.length-1]}}
+        </div>
+    </div>
+    <button mat-raised-button (click)="completeParameterSelect()">Submit</button>
+</div>

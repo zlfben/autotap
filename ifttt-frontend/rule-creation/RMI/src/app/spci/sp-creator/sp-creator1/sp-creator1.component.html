@@ -1,0 +1,67 @@
+<div class="new-component">
+  <div class="back" (click)="goToCreateSp()">←</div>
+  <h1>New Safety Property</h1>
+</div>
+
+<div class="clear" (click)="userDataService.reloadForSp1Clear()">
+    <mat-icon>autorenew</mat-icon> Clear Property
+  </div>
+
+<!-- display the this clause -->
+<p *ngFor="let clause of userDataService.currentlyStagedSp1.thisState; let i = index"
+class="pointer"
+(click)="userDataService.gotoSpChannelSelector('trigger', 'this', i)"
+style="width: 100%">
+  <span class="clause">{{clause.text}}</span>
+</p>
+<!-- display the that -->
+<p (click)="userDataService.gotoSpChannelSelector('trigger', 'this', -1)" class="clause clickable pointer"
+*ngIf="userDataService.currentlyStagedSp1.thisState.length == 0"
+style="width: 100%">
+  this state
+</p>
+
+<p>and</p>
+
+<!-- display the that clauses -->
+<p *ngFor="let thatClause of userDataService.currentlyStagedSp1.thatState; let i = index"
+(click)="userDataService.gotoSpChannelSelector('trigger', 'that', i)" class="pointer">
+  <span *ngIf="i > 0" class="clickable">and</span>
+  <span class="clause">{{thatClause.text}}</span>
+</p>
+<!-- display the next this -->
+<p (click)="userDataService.gotoSpChannelSelector('trigger', 'that', -1)" class="clause clickable pointer"
+[class.optional]="userDataService.currentlyStagedSp1.thatState.length > 0"
+[class.hasplus]="userDataService.currentlyStagedSp1.thatState.length == 0">
+  <span *ngIf="userDataService.currentlyStagedSp1.thatState.length > 0">and</span>
+  this state
+</p>
+
+<p>should</p>
+
+<p [ngSwitch]="userDataService.compatibilityPhrase">
+    <span 
+      class="compatibility"
+      (click)="changeCompatibility('never')"
+      *ngSwitchCase="'always'"
+    >always</span>
+    <span 
+      class="compatibility"
+      (click)="changeCompatibility('always')"
+      *ngSwitchCase="'never'"
+    >never</span>
+    <span
+      *ngSwitchDefault>
+      <span class="clause" (click)="changeCompatibility('always')">always</span> / <span class="clause" (click)="changeCompatibility('never')">never</span>
+    </span>
+  </p>
+
+<p>occur together</p>
+
+<!-- PRIORITY CLAUSE -->
+<div *ngIf="userDataService.shouldShowPriority()" class="centerme">
+  priority <input type="text" value="1" [(ngModel)]="userDataService.currentlyStagedRule.priority"/>
+</div>
+
+
+<button mat-raised-button (click)="finishSp()" class="finish-rule">Save</button>

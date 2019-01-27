@@ -1,0 +1,94 @@
+<div class="new-component">
+  <div class="back" (click)="goToCreateSp()">←</div>
+  <h1>New Safety Property</h1>
+</div>
+
+<div class="clear" (click)="userDataService.reloadForSp3Clear()">
+  <mat-icon>autorenew</mat-icon> Clear Property
+</div>
+
+<!-- display the this clause -->
+<p *ngFor="let clause of userDataService.currentlyStagedSp3.triggerClause; let i = index"
+class="pointer"
+(click)="userDataService.gotoSpChannelSelector('trigger', 'trigger', i)"
+style="width: 100%">
+  <span class="clause">{{clause.text}}</span>
+</p>
+<!-- display the that -->
+<p (click)="userDataService.gotoSpChannelSelector('trigger', 'trigger', -1)" class="clause clickable pointer"
+*ngIf="userDataService.currentlyStagedSp3.triggerClause.length == 0"
+style="width: 100%">
+  <span>this event</span>
+</p>
+
+<p>should</p>
+
+<p [ngSwitch]="userDataService.compatibilityPhrase">
+    <span 
+      class="compatibility"
+      (click)="changeCompatibility('never')"
+      *ngSwitchCase="'always'"
+    >always</span>
+    <span 
+      class="compatibility"
+      (click)="changeCompatibility('always')"
+      *ngSwitchCase="'never'"
+    >never</span>
+    <span
+      *ngSwitchDefault>
+      <span class="clause" (click)="changeCompatibility('always')">always</span> / <span class="clause" (click)="changeCompatibility('never')">never</span>
+    </span>
+  </p>
+
+<p>happen</p>
+
+<!-- display the next this -->
+<p (click)="gotoSpClauseCreate('trigger', 'other', -1)"
+*ngIf="userDataService.whileOrAfter == true"
+[class.gray]="userDataService.currentlyStagedSp3.otherClauses.length == 0"
+[class.optional]="userDataService.currentlyStagedSp3.otherClauses.length == 0"
+[class.black]="userDataService.currentlyStagedSp3.otherClauses.length > 0">
+<mat-icon *ngIf="userDataService.currentlyStagedSp3.otherClauses.length == 0">add_circle_outline</mat-icon><span> while </span>
+  <span *ngIf="userDataService.currentlyStagedSp3.otherClauses.length == 0" class="clickable">that</span>
+</p>
+<!-- display the that clauses -->
+<div *ngIf="userDataService.whileOrAfter == true">
+  <p *ngFor="let otherClause of userDataService.currentlyStagedSp3.otherClauses; let i = index"
+    (click)="userDataService.gotoSpChannelSelector('trigger', 'other', i)" class="pointer">
+      <span *ngIf="i > 0" class="clickable">and</span>
+      <span class="clause">{{otherClause.text}}</span>
+  </p>
+</div>
+
+<p [ngSwitch]="userDataService.hasAfterTime" *ngIf="(userDataService.currentlyStagedSp3.otherClauses.length == 0 || userDataService.whileOrAfter == false)">
+  <span *ngSwitchCase="false" class="optional hasplus">
+    <span (click)="addTimeAfter()">
+      <mat-icon>add_circle_outline</mat-icon> within this long after that
+    </span>
+  </span>
+  <span *ngSwitchCase="true" class="default clause">
+    <div>
+      <span class="black">within </span>
+      <input matInput min="0" max="23"
+      class="time-selector" type="number" [(ngModel)]="userDataService.currentlyStagedSp3.afterTime.hours">h
+      <input matInput min="0" max="59"
+      class="time-selector" type="number" [(ngModel)]="userDataService.currentlyStagedSp3.afterTime.minutes">m
+      <input matInput min="0" max="59"
+      class="time-selector" type="number" [(ngModel)]="userDataService.currentlyStagedSp3.afterTime.seconds">s
+    </div>
+    <div>
+      <span class="clickable black" (click)="removeTimeAfter()"> after </span>
+      <span *ngFor="let clause of userDataService.currentlyStagedSp3.otherClauses; let i = index"
+      class="pointer"
+      (click)="userDataService.gotoSpChannelSelector('trigger', 'otherEvent', i)">
+        {{clause.text}}
+      </span>
+      <span (click)="userDataService.gotoSpChannelSelector('trigger', 'otherEvent', -1)" class="clause clickable pointer"
+      *ngIf="userDataService.currentlyStagedSp3.otherClauses.length == 0"
+      style="width: 100%">
+        that </span>
+    </div>
+  </span>
+</p>
+
+<button mat-raised-button (click)="finishSp()" class="finish-rule">Save</button>

@@ -1,0 +1,39 @@
+FROM ubuntu:xenial
+
+USER root
+
+# Replace shell with bash so we can source files
+RUN rm /bin/sh && ln -s /bin/bash /bin/sh
+
+RUN apt update --fix-missing
+RUN apt install -y curl build-essential libssl-dev
+RUN groupadd -g 1001 -r superifttt && useradd --no-log-init -r -u 1001 -g superifttt superifttt && mkhomedir_helper superifttt
+
+ENV NVM_DIR /home/superifttt/.nvm
+ENV NODE_VERSION 10.13.0
+
+# Install nvm with node and npm
+RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash &&\
+    source $NVM_DIR/nvm.sh &&\
+    nvm install $NODE_VERSION &&\
+    nvm alias default $NODE_VERSION &&\
+    nvm use default
+
+ENV NODE_PATH $NVM_DIR/versions/node/v$NODE_VERSION/lib/node_modules
+ENV PATH      $NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH
+
+# install angular/cli golbally
+RUN npm install -g @angular/cli@6.1.0
+
+# create workdir
+RUN mkdir /home/superifttt/frontend
+
+# install dependencies
+COPY ./ifttt-frontend/rule-creation/RMI/package.json /home/superifttt/frontend/package.json
+RUN cd /home/superifttt/frontend/ && npm install
+
+USER superifttt
+
+WORKDIR /home/superifttt/frontend
+
+CMD [ "ng", "serve", "--host", "0.0.0.0" ]

@@ -1,0 +1,34 @@
+FROM ubuntu:xenial
+
+USER root
+
+RUN apt update && apt install -y wget net-tools
+RUN groupadd -g 1000 -r iftttuser && useradd --no-log-init -r -u 1000 -g iftttuser iftttuser && mkhomedir_helper iftttuser
+
+# install spot model checker
+RUN wget -q -O - https://www.lrde.epita.fr/repo/debian.gpg | apt-key add - &&\
+    echo 'deb http://www.lrde.epita.fr/repo/debian/ stable/' >> /etc/apt/sources.list &&\
+    apt update && apt install -y spot libspot-dev spot-doc python3-spot
+
+# install qm package
+RUN cd /root && \
+    wget http://robertdick.org/python/qm-0.2.tar.gz && \
+    tar -zxvf qm-0.2.tar.gz &&\
+    cd /root/qm-0.2 && \
+    python3 setup.py install
+
+# install AutoTap
+ADD ./iot-autotap /root/AutoTap
+RUN apt update && apt install -y python3-pip
+RUN cd /root/AutoTap && \
+    pip3 install .
+
+# install django
+ADD ./iot-tap-backend/requirements.txt /home/iftttuser
+RUN pip3 install -r /home/iftttuser/requirements.txt
+RUN apt update && apt install -y postgresql-client-9.5
+
+USER iftttuser
+
+WORKDIR /home/iftttuser/backend
+CMD ["./initialize.sh"]

@@ -1,0 +1,191 @@
+Windows
+Open/Close Window,value : T,{DEVICE} Opens,{DEVICE} is {value},{value/T|Open}{value/F|Close} {DEVICE}
+Open/Close Window,value : F,{DEVICE} Closes,{DEVICE} is {value},{value/T|Open}{value/F|Close} {DEVICE}
+
+Sensors
+Detect Motion,value : T,{DEVICE} starts detecting motion,{DEVICE} detects motion,None
+Detect Motion,value : F,{DEVICE} stops detecting motion,{DEVICE} does not detect motion,None
+
+
+Weather Sensor,weather : =,({DEVICE}) The weather changes to {weather},({DEVICE}) The weather is {weather},None
+Weather Sensor,weather : !=,({DEVICE}) The weather stops being {weather},({DEVICE}) The weather is not {weather},None
+
+
+Thermometer,c_or_f : = | value : =,({DEVICE}) The temperature becomes {value},({DEVICE}) The temperature is {value},None
+Thermometer,c_or_f : = | value : !=,({DEVICE}) The temperature changes from {value},({DEVICE}) The temperature is not {value},None
+Thermometer,c_or_f : = | value : >,({DEVICE}) The temperature goes above {value},({DEVICE}) The temperature is above {value},None
+Thermometer,c_or_f : = | value : <,({DEVICE}) The temperature falls below {value},({DEVICE}) The temperature is below {value},None
+Thermometer,c_or_f : != | value : =,({DEVICE}) The temperature becomes {value},({DEVICE}) The temperature is {value},None
+Thermometer,c_or_f : != | value : !=,({DEVICE}) The temperature changes from {value},({DEVICE}) The temperature is not {value},None
+Thermometer,c_or_f : != | value : >,({DEVICE}) The temperature goes above {value},({DEVICE}) The temperature is above {value},None
+Thermometer,c_or_f : != | value : <,({DEVICE}) The temperature falls below {value},({DEVICE}) The temperature is below {value},None
+
+
+Detect Presence,value : T,({DEVICE}) I arrive at Home,({DEVICE}) I am at Home,None
+Detect Presence,value : F,({DEVICE}) I leave Home,({DEVICE}) I am not at Home,None
+
+Weather
+Weather Sensor,weather : =,({DEVICE}) The weather changes to {weather},({DEVICE}) The weather is {weather},None
+Weather Sensor,weather : !=,({DEVICE}) The weather stops being {weather},({DEVICE}) The weather is not {weather},None
+
+
+Is it Raining?,value : T,({DEVICE}) It Starts Raining,({DEVICE}) It is {value},None
+Is it Raining?,value : F,({DEVICE}) It Stops Raining,({DEVICE}) It is {value},None
+
+Temperature
+Thermometer,c_or_f : = | value : =,({DEVICE}) The temperature becomes {value},({DEVICE}) The temperature is {value},None
+Thermometer,c_or_f : = | value : !=,({DEVICE}) The temperature changes from {value},({DEVICE}) The temperature is not {value},None
+Thermometer,c_or_f : = | value : >,({DEVICE}) The temperature goes above {value},({DEVICE}) The temperature is above {value},None
+Thermometer,c_or_f : = | value : <,({DEVICE}) The temperature falls below {value},({DEVICE}) The temperature is below {value},None
+Thermometer,c_or_f : != | value : =,({DEVICE}) The temperature becomes {value},({DEVICE}) The temperature is {value},None
+Thermometer,c_or_f : != | value : !=,({DEVICE}) The temperature changes from {value},({DEVICE}) The temperature is not {value},None
+Thermometer,c_or_f : != | value : >,({DEVICE}) The temperature goes above {value},({DEVICE}) The temperature is above {value},None
+Thermometer,c_or_f : != | value : <,({DEVICE}) The temperature falls below {value},({DEVICE}) The temperature is below {value},None
+
+
+Thermostat,value : =,{DEVICE} becomes set to {value} degrees,{DEVICE} is set to {value} degrees,Set {DEVICE} to {value}
+Thermostat,value : !=,{DEVICE} stops being set to {value} degrees,{DEVICE} is not set to {value} degrees,Set {DEVICE} to {value}
+Thermostat,value : >,{DEVICE} becomes set to >{value} degrees,{DEVICE} is set to >{value} degrees,Set {DEVICE} to {value}
+Thermostat,value : <,{DEVICE} becomes set to <{value} degrees,{DEVICE} is set to <{value} degrees,Set {DEVICE} to {value}
+
+Time
+Clock,value : =,({DEVICE}) The time becomes {value},({DEVICE}) The time is {value},None
+Clock,value : !=,({DEVICE}) The time stops being {value},({DEVICE}) The time is not {value},None
+
+
+Set Alarm,time : =,{DEVICE} sets an Alarm at {time},{DEVICE} has an Alarm set for {time},({DEVICE} Set an Alarm for {time}
+Set Alarm,time : !=,{DEVICE} unsets an Alarm at {time},{DEVICE} does not have an Alarm set for {time},({DEVICE} Set an Alarm for {time}
+
+
+Alarm Ringing,value : T,{DEVICE}'s Alarm starts going off,{DEVICE}'s Alarm is going off,{value/T|Set off}{value/F|Turn off} {DEVICE}'s alarm
+Alarm Ringing,value : F,{DEVICE}'s Alarm stops going off,{DEVICE}'s Alarm is not going off,{value/T|Set off}{value/F|Turn off} {DEVICE}'s alarm
+
+Camera
+Record,value : T,{DEVICE} starts recording,{DEVICE} is recording,({DEVICE}) {value/T|start}{value/F|stop} recording
+Record,value : F,{DEVICE} stops recording,{DEVICE} is not recording,({DEVICE}) {value/T|start}{value/F|stop} recording
+
+
+Take Photo,=,None,None,({DEVICE}) Take a photo
+
+Shopping
+Order Pizza,=,None,None,({DEVICE}) Order {quantity} {size} Pizza(s) with {topping}
+
+
+What's On My Shopping List?,item : =,({DEVICE}) {item} is added toadded to my Shopping List,({DEVICE}) {item} is on my Shopping List,None
+What's On My Shopping List?,item : !=,({DEVICE}) {item} is  my Shopping List,({DEVICE}) {item} is not on my Shopping List,None
+
+
+Track Package,TrackingID : = | distance : =,({DEVICE}) Package #{trackingid} becomes {distance} miles away,({DEVICE}) Package #{trackingid} is {distance} miles away,None
+Track Package,TrackingID : = | distance : !=,({DEVICE}) Package #{trackingid} stops being {distance} miles away,({DEVICE}) Package #{trackingid} is not {distance} miles away,None
+Track Package,TrackingID : = | distance : >,({DEVICE}) Package #{trackingid} becomes more than {distance} miles away,({DEVICE}) Package #{trackingid} is >{distance} miles away,None
+Track Package,TrackingID : = | distance : <,({DEVICE}) Package #{trackingid} becomes less than {distance} miles away,({DEVICE}) Package #{trackingid} is <{distance} miles away,None
+Track Package,TrackingID : != | distance : =,({DEVICE}) Package #{trackingid} becomes {distance} miles away,({DEVICE}) Package #{trackingid} is {distance} miles away,None
+Track Package,TrackingID : != | distance : !=,({DEVICE}) Package #{trackingid} stops being {distance} miles away,({DEVICE}) Package #{trackingid} is not {distance} miles away,None
+Track Package,TrackingID : != | distance : >,({DEVICE}) Package #{trackingid} becomes more than {distance} miles away,({DEVICE}) Package #{trackingid} is >{distance} miles away,None
+Track Package,TrackingID : != | distance : <,({DEVICE}) Package #{trackingid} becomes less than {distance} miles away,({DEVICE}) Package #{trackingid} is <{distance} miles away,None
+
+
+Order (Amazon),=,None,None,({DEVICE}) Order {quantity} {item} on Amazon
+
+Television
+Volume,value : =,{DEVICE}'s Volume becomes {value},{DEVICE}'s Volume is {value},Set {DEVICE}'s Volume to {value}
+Volume,value : !=,{DEVICE}'s Volume stops being {value},{DEVICE}'s Volume is not {value},Set {DEVICE}'s Volume to {value}
+Volume,value : >,{DEVICE}'s Volume goes above {value},{DEVICE}'s Volume is above {value},Set {DEVICE}'s Volume to {value}
+Volume,value : <,{DEVICE}'s Volume falls below {value},{DEVICE}'s Volume is below {value},Set {DEVICE}'s Volume to {value}
+
+
+Channel,channel : =,{DEVICE} tunes to Channel {channel},{DEVICE} is tuned to Channel {channel},Tune {DEVICE} to Channel {channel}
+Channel,channel : !=,{DEVICE} stops being tuned to Channel {channel},{DEVICE} is not tuned  not Channel {channel},Tune {DEVICE} to Channel {channel}
+Channel,channel : >,{DEVICE} tunes above Channel {channel},{DEVICE} is tuned above Channel {channel},Tune {DEVICE} to Channel {channel}
+Channel,channel : <,{DEVICE} tunes below Channel {channel},{DEVICE} is tuned below Channel {channel},Tune {DEVICE} to Channel {channel}
+
+
+What Show is On?,name : =,{name} starts playing on {DEVICE},{name} is playing on {DEVICE},None
+What Show is On?,name : !=,{name} stops playing on {DEVICE},{name} is not playing on {DEVICE},None
+
+Food & Drink
+Order Pizza,=,None,None,({DEVICE}) Order {quantity} {size} Pizza(s) with {topping}
+
+
+How Much Coffee Is There?,cups : =,({DEVICE}) The number of cups of coffee becomes {cups},({DEVICE}) There are {cups} cups of coffee brewed,None
+How Much Coffee Is There?,cups : !=,({DEVICE}) The number of cups of coffee changes from {cups},({DEVICE}) There are not {cups} cups of coffee brewed,None
+
+
+Brew Coffee,=,None,None,({DEVICE}) Brew {cups} cup(s) of coffee
+
+Power
+Switch,value : T,{DEVICE} turns {value},{DEVICE} is {value},Turn {DEVICE} {value}
+Switch,value : F,{DEVICE} turns {value},{DEVICE} is {value},Turn {DEVICE} {value}
+
+Lights
+Brightness,value : =,{DEVICE}'s Brightness becomes {value},{DEVICE}'s Brightness is {value},Set {DEVICE}'s Brightness to {value}
+Brightness,value : !=,{DEVICE}'s Brightness stops being {value},{DEVICE}'s Brightness is not {value},Set {DEVICE}'s Brightness to {value}
+Brightness,value : >,{DEVICE}'s Brightness  goes above {value},{DEVICE}'s Brightness is above {value},Set {DEVICE}'s Brightness to {value}
+Brightness,value : <,{DEVICE}'s Brightness  falls below {value},{DEVICE}'s Brightness is below {value},Set {DEVICE}'s Brightness to {value}
+
+
+Light Color (Preset),color : =,{DEVICE}'s Color becomes {color},{DEVICE}'s Color is {color},Set {DEVICE}'s Color to {color}
+Light Color (Preset),color : !=,{DEVICE}'s Color stops being {color},{DEVICE}'s Color is not {color},Set {DEVICE}'s Color to {color}
+
+
+Switch,value : T,{DEVICE} turns {value},{DEVICE} is {value},Turn {DEVICE} {value}
+Switch,value : F,{DEVICE} turns {value},{DEVICE} is {value},Turn {DEVICE} {value}
+
+
+Light Color,color : =,{DEVICE}'s Color becomes {color},{DEVICE}'s Color is {color},Set {DEVICE}'s Color to {color}
+Light Color,color : !=,{DEVICE}'s Color changes from {color},{DEVICE}'s Color is not {color},Set {DEVICE}'s Color to {color}
+
+Music
+Volume,value : =,{DEVICE}'s Volume becomes {value},{DEVICE}'s Volume is {value},Set {DEVICE}'s Volume to {value}
+Volume,value : !=,{DEVICE}'s Volume stops being {value},{DEVICE}'s Volume is not {value},Set {DEVICE}'s Volume to {value}
+Volume,value : >,{DEVICE}'s Volume goes above {value},{DEVICE}'s Volume is above {value},Set {DEVICE}'s Volume to {value}
+Volume,value : <,{DEVICE}'s Volume falls below {value},{DEVICE}'s Volume is below {value},Set {DEVICE}'s Volume to {value}
+
+
+FM Tuner,frequency : =,{DEVICE} changes to {frequency}FM,{DEVICE} is tuned to {frequency}FM,Tune {DEVICE} to {frequency}FM
+FM Tuner,frequency : !=,{DEVICE} changes from {frequency}FM,{DEVICE} is not tuned to {frequency}FM,Tune {DEVICE} to {frequency}FM
+FM Tuner,frequency : >,{DEVICE} changes to greater than {frequency}FM,{DEVICE} is tuned to >{frequency}FM,Tune {DEVICE} to {frequency}FM
+FM Tuner,frequency : <,{DEVICE} changes to less than {frequency}FM,{DEVICE} is tuned to <{frequency}FM,Tune {DEVICE} to {frequency}FM
+
+
+Play Song,name : =,{name} starts playing on {DEVICE},{name} is playing on {DEVICE},{name/=|Start}{name/!=|Stop} playing {name} on {DEVICE}
+Play Song,name : !=,{name} stops playing on {DEVICE},{name} is not playing on {DEVICE},{name/=|Start}{name/!=|Stop} playing {name} on {DEVICE}
+
+
+Genre,value : =,{DEVICE} starts playing {value},{DEVICE} is playing {value},Start playing {value} on {DEVICE}
+Genre,value : !=,{DEVICE} stops playing {value},{DEVICE} is not playing {value},Start playing {value} on {DEVICE}
+
+Security
+Lock/Unlock,value : T,{DEVICE} becomes {value},{DEVICE} is {value},{value/T|Lock}{value/F|Unlock} {DEVICE}
+Lock/Unlock,value : F,{DEVICE} becomes {value},{DEVICE} is {value},{value/T|Lock}{value/F|Unlock} {DEVICE}
+
+
+Siren,value : T,{DEVICE}'s Siren turns {value},{DEVICE}'s Siren is {value},Turn {DEVICE}'s Siren {value}
+Siren,value : F,{DEVICE}'s Siren turns {value},{DEVICE}'s Siren is {value},Turn {DEVICE}'s Siren {value}
+
+Location
+Detect Presence,value : T,({DEVICE}) I arrive at Home,({DEVICE}) I am at Home,None
+Detect Presence,value : F,({DEVICE}) I leave Home,({DEVICE}) I am not at Home,None
+
+History
+Previous State,trigger : = | time : =,{$trigger$} became active {time} ago,{$trigger$} was active {time} ago,None
+Previous State,trigger : = | time : !=,{$trigger$} stopped being active {time} ago,{$trigger$} was active {time} ago,None
+
+
+Event Frequency,trigger : = | time : = | occurrences : =,It becomes true that {$trigger$} has occurred {occurrences} times in the last {time},{$trigger$} has occurred {occurrences} times in the last {time},None
+Event Frequency,trigger : = | time : = | occurrences : !=,It becomes true that {$trigger$} has not occurred {occurrences} times in the last {time},{$trigger$} has not occurred {occurrences} times in the last {time},None
+Event Frequency,trigger : = | time : = | occurrences : >,It becomes true that {$trigger$} has occurred >{occurrences} times in the last {time},{$trigger$} has occurred >{occurrences} times in the last {time},None
+Event Frequency,trigger : = | time : = | occurrences : <,It becomes true that {$trigger$} has occurred <{occurrences} times in the last {time},{$trigger$} has occurred <{occurrences} times in the last {time},None
+Event Frequency,trigger : = | time : != | occurrences : =,It becomes true that {$trigger$} has occurred {occurrences} times in the last {time},{$trigger$} has occurred {occurrences} times in the last {time},None
+Event Frequency,trigger : = | time : != | occurrences : !=,It becomes true that {$trigger$} has not occurred {occurrences} times in the last {time},{$trigger$} has not occurred {occurrences} times in the last {time},None
+Event Frequency,trigger : = | time : != | occurrences : >,It becomes true that {$trigger$} has occurred >{occurrences} times in the last {time},{$trigger$} has occurred >{occurrences} times in the last {time},None
+Event Frequency,trigger : = | time : != | occurrences : <,It becomes true that {$trigger$} has occurred <{occurrences} times in the last {time},{$trigger$} has occurred <{occurrences} times in the last {time},None
+
+
+Time Since State,trigger : = | time : =,It becomes true that {$trigger$} was last in effect {time} ago,{$trigger$} was last in effect {time} ago,None
+Time Since State,trigger : = | time : !=,It becomes true that {$trigger$} was last in effect {time} ago,{$trigger$} was last in effect {time} ago,None
+
+
+Time Since Event,trigger : = | time : =,It becomes true that {$trigger$} last happened {time} ago,{$trigger$} last happened {time} ago,None
+Time Since Event,trigger : = | time : !=,It becomes true that {$trigger$} last happened {time} ago,{$trigger$} last happened {time} ago,None
+

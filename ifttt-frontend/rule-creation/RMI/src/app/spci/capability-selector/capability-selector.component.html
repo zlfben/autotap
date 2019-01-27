@@ -1,0 +1,34 @@
+<div class="top">
+  <div class="back" (click)="this._location.back()">←</div>
+  <h1>Select a capability for <em>{{this.selectedDevice.name}}</em></h1>
+</div>
+
+<div class="container">
+  <div class="channelBlock" *ngFor="let capability of this.selectableCapabilities; let i = index" 
+          (click)="this.userDataService.gotoSpParameterConfiguration(capability, selectedChannelID, selectedDeviceID, capability.id)">
+    <div class="Inner">
+      <div class="Name">{{capability.name}}</div>
+    </div>
+  </div>
+</div>
+
+<!--
+<div class="outer" *ngFor="let parameters of selectedParameters; let i = index">
+    <div class="channelBlock" *ngIf="behavior.eventDescriptions.eventStart"
+    (click)="this.userDataService.gotoBehaviorConfigure(selectedChannel.item, i, 'start')">
+        <div class="Inner">
+            <div class="Name">
+                {{this.getBehaviorStart(behavior, i)}}
+            </div>
+        </div>
+    </div>
+    <div class="channelBlock" *ngIf="behavior.eventDescriptions.eventEnd"
+    (click)="this.userDataService.gotoBehaviorConfigure(selectedChannel.item, i, 'end')">
+        <div class="Inner">
+            <div class="Name">
+                {{this.getBehaviorEnd(behavior, i)}}
+            </div>
+        </div>
+    </div>
+</div> 
+-->

@@ -1,0 +1,13 @@
+<div class="top">
+  <div class="back" (click)="this._location.back()">←</div>
+  <h1>Select a capability for <em>{{this.selectedDevice.name}}</em></h1>
+</div>
+
+<div class="container">
+  <div class="channelBlock" *ngFor="let capability of this.selectableCapabilities; let i = index" 
+          (click)="this.userDataService.gotoParameterConfiguration(capability, selectedChannelID, selectedDeviceID, capability.id)">
+    <div class="Inner">
+      <div class="Name">{{capability.name}}</div>
+    </div>
+  </div>
+</div>

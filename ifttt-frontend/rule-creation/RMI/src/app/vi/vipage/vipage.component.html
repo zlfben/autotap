@@ -1,0 +1,76 @@
+<div class="row">
+
+  <div class="column">
+    <div class="container">
+      <mat-icon>assignment</mat-icon>
+      <div class="title">
+        <h1>Your Original Rules</h1>
+      </div>
+      <div class="newrule">
+      </div> 
+    </div>
+
+    <mat-list>
+      <mat-list-item class="rule-display" *ngFor="let rule of ORIGRULES; let i = index">
+        <div class="rule-blocks">
+          <div *ngFor="let word of rule.words; let i = index" class="rule-block">
+            <div class="rule-word">
+              {{rule.words[i]}}
+            </div>
+            <div class="rule-icon">
+              <mat-icon>{{rule.icons[i]}}</mat-icon>
+              <div class="underneath">
+                {{rule.descriptions[i]}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-list-item>
+    </mat-list>
+
+  </div>
+
+
+  <div class="column">
+    <div class="container">
+      <mat-icon>assignment</mat-icon>
+      <div class="title">
+        <h1>Patches Suggested by AutoTap</h1>
+      </div>
+      <div class="newrule">
+      </div> 
+    </div>
+
+    <div style='margin:10px auto; text-align:center'>
+      <button mat-raised-button class="navi" (click)="gotoPrev()">Prev</button>
+        <span style='font-size:30px'>Option {{currentIndex+1}}/{{patchNum}}</span>
+      <button mat-raised-button class="navi" (click)="gotoNext()">Next</button>
+    </div>
+
+    
+
+    <p>{{ CURRENTPATCH.length == 1 ? 
+      "You can use the following rule to replace the original ones:" : 
+      "You can use the following rules to replace the original ones:"}}</p>
+
+    <mat-list>
+      <mat-list-item class="rule-display" *ngFor="let rule of CURRENTPATCH; let i = index">
+        <div class="rule-blocks">
+          <div *ngFor="let word of rule.words; let i = index" class="rule-block">
+            <div class="rule-word">
+              {{rule.words[i]}}
+            </div>
+            <div class="rule-icon">
+              <mat-icon>{{rule.icons[i]}}</mat-icon>
+              <div class="underneath">
+                {{rule.descriptions[i]}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-list-item>
+    </mat-list>
+
+  </div>
+</div>
+

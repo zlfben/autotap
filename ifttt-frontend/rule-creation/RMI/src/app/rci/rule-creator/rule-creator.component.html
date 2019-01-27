@@ -1,0 +1,54 @@
+<div class="new-component">
+  <div class="back" (click)="goToRulesHome()">←</div>
+  <h1>New Rule</h1>
+</div>
+
+<div class="clear" (click)="userDataService.reloadForRuleClear()">
+  <mat-icon>autorenew</mat-icon> Clear Rule
+</div>
+
+<p>if</p>
+
+<!-- display the if clauses -->
+  <p *ngFor="let ifClause of userDataService.currentlyStagedRule.ifClause; let i = index"
+  (click)="userDataService.gotoChannelSelector('trigger', i)" class="pointer">
+    <span *ngIf="i > 1" class="clickable">and</span>
+    <span *ngIf="i == 1" class="clickable">while </span>
+    <span class="clause">{{ifClause.text}}</span>
+  </p>
+<!-- display the next this -->
+<p *ngIf="userDataService.currentlyStagedRule.ifClause.length == 0"
+(click)="userDataService.gotoChannelSelector('trigger', -1)" class="clause clickable pointer">
+  this
+</p>
+<p *ngIf="userDataService.currentlyStagedRule.ifClause.length >= 1" 
+(click)="userDataService.gotoChannelSelector('triggerAdd', -1)" class="clause clickable pointer"
+ class="optional clickable">
+  <span *ngIf="userDataService.currentlyStagedRule.ifClause.length == 1">while </span>
+  <span *ngIf="userDataService.currentlyStagedRule.ifClause.length > 1">and</span>
+  <mat-icon>add_circle_outline</mat-icon> this
+</p>
+
+<p>then</p>
+
+<!-- display the if clauses -->
+<p *ngFor="let clause of userDataService.currentlyStagedRule.thenClause; let i = index"
+class="pointer"
+(click)="userDataService.gotoChannelSelector('action', i)"
+style="width: 100%">
+  <span class="clause">{{clause.text}}</span>
+</p>
+<!-- display the that -->
+<p (click)="userDataService.gotoChannelSelector('action', -1)" class="clause clickable pointer"
+*ngIf="userDataService.currentlyStagedRule.thenClause.length == 0"
+style="width: 100%">
+  that
+</p>
+
+<!-- PRIORITY CLAUSE -->
+<div *ngIf="userDataService.shouldShowPriority()" class="centerme">
+  priority <input type="text" value="1" [(ngModel)]="userDataService.currentlyStagedRule.priority"/>
+</div>
+
+
+<button mat-raised-button (click)="finishRule()" class="finish-rule">Save</button>

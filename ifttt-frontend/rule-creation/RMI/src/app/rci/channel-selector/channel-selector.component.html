@@ -1,0 +1,15 @@
+<div class="top">
+  <div class="back" (click)="this._location.back()">←</div>
+  <h1>Select a Channel</h1>
+  <mat-icon>rss_feed</mat-icon>
+</div>
+
+<div class="container">
+  <div class="channelBlock" *ngFor="let channel of this.selectableChannels; let i = index" 
+        (click)="this.userDataService.gotoDeviceSelector(channel)">
+    <div class="Inner">
+      <mat-icon>{{channel.icon}}</mat-icon>
+      <div class="Name">{{channel.name}}</div> 
+    </div>
+  </div>
+</div>

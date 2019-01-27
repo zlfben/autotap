@@ -1,0 +1,30 @@
+<div class="container">
+  <mat-icon>assignment</mat-icon>
+  <div class="title">
+    <h1>Your Current Properties</h1>
+  </div>
+</div>
+
+<button mat-raised-button (click)="gotoCreateSp()" class='addnew'>Add a New Property <mat-icon class="add-icon">add</mat-icon></button>
+
+<mat-list>
+  <mat-list-item class="sp-display" *ngFor="let sp of SPS; let i = index">
+    <div class="sp-blocks">
+      <div *ngFor="let description of sp.descriptions; let i = index" class="sp-block">
+        <div class="sp-icon">
+          <mat-icon>{{sp.icons[i]}}</mat-icon>
+          <div class="underneath">
+            {{sp.descriptions[i]}}
+          </div>
+        </div>
+        <div class="sp-word">
+          {{sp.words[i]}}
+        </div>
+      </div>
+    </div>
+    <div class="sp-manage">
+      <mat-icon (click)="editSp(i)">create</mat-icon>
+      <mat-icon (click)="deleteSp(spids[i])">delete_outline</mat-icon> 
+    </div>
+  </mat-list-item>
+</mat-list>

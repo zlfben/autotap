@@ -1,0 +1,30 @@
+version: "3"
+services:
+    postgres:
+      build: 
+        context: .
+        dockerfile: docker/Dockerfile-db
+        args:
+          - dbusername=iftttuser
+          - dbpassword=password
+    
+    backend:
+      build:
+        context: .
+        dockerfile: docker/Dockerfile-backend
+      depends_on:
+        - postgres
+      volumes:
+        - ./iot-tap-backend:/home/iftttuser/backend
+      ports:
+        - "8000:8000"
+
+    frontend:
+      build:
+        context: .
+        dockerfile: docker/Dockerfile-frontend
+      volumes:
+        - ./ifttt-frontend/rule-creation/RMI:/home/superifttt/frontend
+        - /home/superifttt/frontend/node_modules
+      ports:
+        - "4200:4200"

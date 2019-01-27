@@ -1,0 +1,20 @@
+<div class="new-component">
+  <div class="back" (click)="goToSpci()">←</div>
+  <h1>Configure Property</h1>
+</div>
+
+<div class="sptype" (click)="goToCreateSp2(true, true)">
+  <span class="orange">This state</span> should <span class="orange">always</span>/<span class="orange">never</span> be active
+</div>
+
+<div class="sptype" (click)="goToCreateSp2(false, true)">
+  <span class="orange">This state</span> should <span class="orange">always</span>/<span class="orange">never</span> be active for more than <span class="orange">this long</span>
+</div>
+
+<div class="sptype" (click)="goToCreateSp2(true, false)">
+  <span class="orange">This state</span> should <span class="orange">always</span>/<span class="orange">never</span> be active while <span class="orange">that</span>
+</div>
+
+<div class="sptype" (click)="goToCreateSp2(false, false)">
+  <span class="orange">This state</span> should <span class="orange">always</span>/<span class="orange">never</span> be active for more than <span class="orange">this long</span> while <span class="orange">that</span>
+</div>

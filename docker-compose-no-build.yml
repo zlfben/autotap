@@ -1,0 +1,21 @@
+version: "3"
+services:
+    postgres:
+      image: "zlfben/autotap_database:icse"
+    
+    backend:
+      image: "zlfben/autotap_backend:icse"
+      depends_on:
+        - postgres
+      volumes:
+        - ./iot-tap-backend:/home/iftttuser/backend
+      ports:
+        - "8000:8000"
+
+    frontend:
+      image: "zlfben/autotap_frontend:icse"
+      volumes:
+        - ./ifttt-frontend/rule-creation/RMI:/home/superifttt/frontend
+        - /home/superifttt/frontend/node_modules
+      ports:
+        - "4200:4200"

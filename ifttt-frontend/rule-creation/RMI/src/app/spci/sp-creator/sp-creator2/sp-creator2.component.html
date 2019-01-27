@@ -1,0 +1,85 @@
+<div class="new-component">
+  <div class="back" (click)="goToSp2Choice()">←</div>
+  <h1>New Safety Property</h1>
+</div>
+
+<div class="clear" (click)="userDataService.reloadForSp2Clear()">
+  <mat-icon>autorenew</mat-icon> Clear Property
+</div>
+
+<!-- display the this clause -->
+<p *ngFor="let clause of userDataService.currentlyStagedSp2.stateClause; let i = index"
+class="pointer"
+(click)="userDataService.gotoSpChannelSelector('trigger', 'state', i)"
+style="width: 100%">
+  <span class="clause">{{clause.text}}</span>
+</p>
+<!-- display the that -->
+<p (click)="userDataService.gotoSpChannelSelector('trigger', 'state', -1)" class="clause clickable pointer"
+*ngIf="userDataService.currentlyStagedSp2.stateClause.length == 0"
+style="width: 100%">
+  <span>this state</span>
+</p>
+
+<p>should</p>
+
+<p [ngSwitch]="userDataService.compatibilityPhrase">
+    <span 
+      class="compatibility"
+      (click)="changeCompatibility('never')"
+      *ngSwitchCase="'always'"
+    >always</span>
+    <span 
+      class="compatibility"
+      (click)="changeCompatibility('always')"
+      *ngSwitchCase="'never'"
+    >never</span>
+    <span
+      *ngSwitchDefault>
+      <span class="clause" (click)="changeCompatibility('always')">always</span> / <span class="clause" (click)="changeCompatibility('never')">never</span>
+    </span>
+  </p>
+
+<p>be active</p>
+
+<p *ngIf="userDataService.hideSp2Time == false" [ngSwitch]="userDataService.currentlyStagedSp2.time">
+  <span *ngSwitchCase="null" class="clause">
+    <span (click)="setTime()">
+      for more than this long
+    </span>
+  </span>
+  <span *ngSwitchDefault class="default">
+    <div>
+      <span class="black">for more than</span>
+    </div>
+    <div class="clause">
+      <input matInput min="0" max="23"
+      class="time-selector" type="number" [(ngModel)]="userDataService.currentlyStagedSp2.time.hours">h
+      <input matInput min="0" max="59"
+      class="time-selector" type="number" [(ngModel)]="userDataService.currentlyStagedSp2.time.minutes">m
+      <input matInput min="0" max="59"
+      class="time-selector" type="number" [(ngModel)]="userDataService.currentlyStagedSp2.time.seconds">s
+    </div>
+  </span>
+</p>
+
+<!-- display the next this -->
+<div *ngIf="userDataService.hideSp2Also == false">
+  <p (click)="userDataService.gotoSpChannelSelector('trigger', 'also', -1)">
+    <span>while </span>
+    <span *ngIf="userDataService.currentlyStagedSp2.alsoClauses.length == 0" class="clause">that</span>
+  </p>
+  <!-- display the that clauses -->
+  <p *ngFor="let alsoClause of userDataService.currentlyStagedSp2.alsoClauses; let i = index"
+  (click)="userDataService.gotoSpChannelSelector('trigger', 'also', i)" class="pointer">
+    <span *ngIf="i > 0" class="clickable">and</span>
+    <span class="clause">{{alsoClause.text}}</span>
+  </p>
+  <p (click)="userDataService.gotoSpChannelSelector('trigger', 'also', -1)" 
+    class="optional"
+    *ngIf="userDataService.currentlyStagedSp2.alsoClauses.length > 0">
+    <mat-icon>add_circle_outline</mat-icon><span> and that</span>
+  </p>
+</div>
+
+<button mat-raised-button (click)="finishSp()" class="finish-rule">Save</button>

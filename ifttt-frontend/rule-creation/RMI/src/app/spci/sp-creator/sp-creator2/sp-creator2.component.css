@@ -1,0 +1,196 @@
+.new-component {
+    width: 100%;
+    height: 100px;
+    line-height: 100px;
+    background: #ff9933;
+    font-family: Lato, sans-serif;
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+    margin-bottom: 80px;
+}
+
+.back {
+    float: left;
+    margin-left: 30px;
+    font-size: 30px;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.back:hover{
+    color: #e6f5ff;
+}
+
+button:hover{
+    background-color: #ff8c1a;
+}
+
+.compatibility {
+    cursor: pointer;
+    color: #ff9933;
+}
+
+.compatibility:hover {
+    color: #ff8c1a;
+}
+
+h1 {
+    font-size: 48px;
+    margin: auto;
+    padding-right: 30px;
+}
+
+button {
+    display: block;
+    margin: 0 auto;
+    margin-top: 3vw;
+    margin-bottom: 3vw;
+    text-align: center;
+    background-color: #ff9933;
+    color: #ffffff;
+    padding: 10px 50px 10px 50px;
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+p, .centerme {
+    text-align: center;
+    font-weight: 900;
+    font-size: 6vw;
+    font-family: Lato, sans-serif;
+    margin-bottom: 2vw !important;
+    display: block;
+    margin: 0 auto;
+    width: 80%;
+    position: relative;
+}
+
+.clear {
+    font-family: Lato, sans-serif;
+    color: #ffffff;
+    background-color: #ff9933;
+    padding: 15px 25px 15px 21px;
+    font-size: 20px;
+    border-radius: 5px;
+    text-align: center;
+    position: absolute;
+    top: 115px;
+    left: 15px;
+    box-shadow: 0px 2px 2px #bbbbbb;
+    cursor: pointer
+}
+
+.clear:hover {
+    background-color: #ff8c1a;
+}
+
+.clear mat-icon {
+    font-size: 20px;
+    height: 20px;
+    width: 20px;
+    line-height: 20px;
+    top: 3px;
+}
+
+.clause {
+    color: #ff9933;
+    cursor: pointer;
+}
+
+.clause:hover{
+    color: #ff8c1a;
+    cursor: pointer;
+}
+
+.inline {
+    margin: 0 auto;
+    float: left;
+    position: relative;
+}
+
+.optional {
+    color: #ddd !important;
+    cursor: pointer;
+}
+
+.optional:hover{
+    color: #cfcfcf !important;
+    cursor: pointer;
+}
+
+.optional::after {
+    content: "(optional)";
+    width: 10%;
+    position: absolute;
+    top: 6vw;
+    font-size: 20px;
+    left: 45%;
+}
+
+.gray {
+    color: #ddd !important;
+    cursor: pointer;
+}
+
+.gray:hover{
+    color: #cfcfcf !important;
+    cursor: pointer;
+}
+
+.black {
+    color: #000000;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.pointer {
+    cursor: pointer;
+    width: 100% !important;
+}
+
+.mat-icon {
+    font-size: 6vw;
+    height: 60px;
+    width: 60px;
+    line-height: 60px;
+    position: relative;
+    top: 8px;
+}
+
+.time-selector {
+    font-size: 6vw;
+    font-weight: 700;
+    text-align: right;
+    color: #ff9933 !important;
+    border: none;
+}
+
+.time-selector:focus {
+    outline-color: #ff9933;
+}
+
+mat-select {
+    color: #ff9933 !important;
+    width: 6vw;
+}
+
+mat-option {
+    height: 12vh !important;
+}
+
+::ng-deep .mat-option-text {
+    color: #ff9933 !important;
+    font-weight: 900 !important;
+}
+
+::ng-deep .mat-select:hover .mat-option-text{
+    color: #ff8c1a !important;
+}
+
+::ng-deep .mat-select-value {
+    color: #ff9933 !important;
+}

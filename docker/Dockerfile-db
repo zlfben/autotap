@@ -1,0 +1,19 @@
+FROM ubuntu:xenial
+
+ARG dbusername
+ARG dbpassword
+
+RUN apt update && apt install -y python-software-properties software-properties-common postgresql-9.5 postgresql-client-9.5 postgresql-contrib-9.5
+
+USER postgres
+ADD ./data/anonymous_optin.sql /home/postgres/
+RUN echo "$dbusername"
+RUN /etc/init.d/postgresql start &&\
+    psql --command "CREATE USER $dbusername WITH SUPERUSER PASSWORD '$dbpassword';" &&\
+    createdb -O $dbusername ifttt &&\
+    psql ifttt -U postgres < /home/postgres/anonymous_optin.sql
+RUN echo "host all  all    0.0.0.0/0  md5" >> /etc/postgresql/9.5/main/pg_hba.conf
+RUN echo "listen_addresses='*'" >> /etc/postgresql/9.5/main/postgresql.conf
+EXPOSE 5432
+
+CMD ["/usr/lib/postgresql/9.5/bin/postgres", "-D", "/var/lib/postgresql/9.5/main", "-c", "config_file=/etc/postgresql/9.5/main/postgresql.conf"]

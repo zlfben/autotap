@@ -1,0 +1,32 @@
+<div class="container">
+  <mat-icon>assignment</mat-icon>
+  <div class="title">
+    <h1>Your Current Rules</h1>
+  </div>
+  <div class="newrule">
+  </div> 
+</div>
+
+<button mat-raised-button (click)="gotoCreate()" class='addnew'>Add a New Rule <mat-icon class="add-icon">add</mat-icon></button>
+
+<mat-list>
+  <mat-list-item class="rule-display" *ngFor="let rule of RULES; let i = index">
+    <div class="rule-blocks">
+      <div *ngFor="let word of rule.words; let i = index" class="rule-block">
+        <div class="rule-word">
+          {{rule.words[i]}}
+        </div>
+        <div class="rule-icon">
+          <mat-icon>{{rule.icons[i]}}</mat-icon>
+          <div class="underneath">
+            {{rule.descriptions[i]}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="rule-manage">
+      <mat-icon (click)="editRule(i)">create</mat-icon>
+      <mat-icon (click)="deleteRule(ruleids[i])">delete_outline</mat-icon> 
+    </div>
+  </mat-list-item>
+</mat-list>

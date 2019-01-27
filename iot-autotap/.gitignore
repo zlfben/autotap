@@ -1,0 +1,7 @@
+# pycharm data #
+################
+.idea/
+
+# python cache #
+################
+__pycache__/

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>Please select the users you want to delete.</h1>
+<form action="/manage/" method="post">
+    <label for="userdel">User to delete: </label>
+    <select name="userdel" method="post" size="30" id="userdel" multiple>
+        {% for user in user_code_list %}
+            <option value="{{ user }}">{{ user }}</option>
+        {% endfor %}
+    </select>
+    <br>
+    <input type="submit" name="action" value="manage">
+    <input type="submit" name="action" value="anonymize">
+</form>
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+<div class="new-component">
+  <div class="back" (click)="goToSpmi()">←</div>
+  <h1>New Property</h1>
+</div>
+
+<div class="sptype" (click)="userDataService.gotoCreateSp(1)">
+  <span class="orange">This state</span> and <span class="orange">this state</span> should <span class="orange">always</span>/<span class="orange">never</span> occur together...
+</div>
+
+<div class="sptype" (click)="goToSp2Choice()">
+  <span class="orange">This state</span> should <span class="orange">always</span>/<span class="orange">never</span> be active...
+</div>
+
+<div class="sptype" (click)="userDataService.gotoCreateSp(3)">
+  <span class="orange">This event</span> should <span class="orange">always</span>/<span class="orange">never</span> happen...
+</div>

@@ -1,0 +1,139 @@
+* {
+    font-family: Lato, sans-serif;
+}
+
+mat-icon {
+    font-family: 'Material Icons' !important;
+}
+
+mat-list {
+    padding-top: 0 !important;
+}
+
+mat-list-item:nth-child(odd) {
+    background-color: #ccebff;
+}
+
+mat-list-item {
+    height: auto !important;
+}
+
+.container mat-icon{
+    font-size: 60px;
+    height: 60px;
+    width: 60px;
+    line-height: 60px;
+    float: left;
+    margin: 21px 19px 0px 24px;
+}
+
+.container {
+    width: 100%;
+    height: 100px;
+    line-height: 100px;
+    background: rgb(0, 153, 255);
+    font-family: Lato, sans-serif;
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+}
+
+h1 {
+    margin-left: 5px;
+    font-size: 48px;
+    color: #fff;
+}
+
+button {
+    display: block;
+    margin: auto 0;
+    text-align: center;
+    background-color: rgb(0, 153, 255);
+    color: #ffffff;
+    padding: 8px 28px 8px 28px;
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+button:hover{
+    background-color: #008ae6;
+}
+
+
+button.addnew {
+    margin: 16px 0 16px 30px;
+}
+
+.addnew mat-icon {
+    top: -5px;
+    left: 1px;
+    position: relative;
+    font-size: 30px;
+}
+
+.container, div.newrule, div.newrule button {
+    z-index: 999 !important;
+}
+
+div.title {
+    float: left;
+}
+
+div.newrule {
+    width: 10%;
+    float: right;
+}
+
+.rule-display {
+    padding: 3px 0 5px 10px;
+    display: inline-block;
+}
+
+.rule-blocks {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+div.rule-block {
+    padding: 5px;
+}
+
+div.rule-word, div.rule-icon {
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    font-size: 24px;
+}
+
+.rule-icon {
+    margin-left: 10px;
+    padding: 0 2px 4px 2px;
+}
+
+.rule-icon mat-icon {
+    position: relative;
+    top: 4px;
+    color: #000000;
+}
+
+div.underneath {
+    display: inline-block;
+    font-size: 22px;
+    text-align: center;
+    color: #000000;
+}
+
+.rule-manage {
+    margin: 0 20px 0 auto;
+    display: flex;
+}
+
+.rule-manage mat-icon {
+    cursor: pointer;
+    font-size: 35px;
+    position: relative;
+    top: -4px;
+    padding: 0 10px 0 10px;
+    color:  #000000;
+}

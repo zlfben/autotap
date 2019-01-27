@@ -1,0 +1,13 @@
+<div class="top">
+  <div class="back" (click)="this._location.back()">←</div>
+  <h1>Select a Device</h1>
+  <mat-icon>settings_input_antenna</mat-icon>
+</div>
+<div class="container">
+  <div class="channelBlock" *ngFor="let device of this.selectableDevices; let i = index" 
+        (click)="this.userDataService.gotoCapabilitySelector(device, this.selectedChannelID, device.id)">
+    <div class="Inner">
+      <div class="Name">{{device.name}}</div>
+    </div>
+  </div>
+</div>

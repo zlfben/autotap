@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reproducing results in the paper.</title>
+</head>
+<body>
+<h1>Please select one set of results to reproduce from the paper "Synthesizing and Repairing Trigger-Action Programs Using LTL Properties":</h1>
+    <form action="/autotap/synthesize/" method="post">
+        (Section VI.B) Synthesize rules from correct properties written by participants. This would take about 20 seconds.
+        <br>
+        <input type="submit" name="action" value="Reproduce">
+    </form>
+    <br>
+    <form action="/autotap/debug/" method="post">
+        (Section VI.C): Debug rules mutated from correct rules. This would take a long time, probably more than 10 minutes.
+        <br>
+        <input type="submit" name="action" value="Reproduce">
+    </form>
+    <br>
+    <form action="/autotap/multisp/" method="post">
+        (Section VI.D): Synthesize rules from multiple safety properties. This would take a few seconds.
+        <br>
+        <input type="submit" name="action" value="Reproduce">
+    </form>
+
+<p>
+    Notes:
+    <ul>
+        <li>
+            We went through a pre-process for both rules and properties written by participants.
+            We made the following changes in case when the participants were misled because of
+            poor design of the interface. Since we are only testing AutoTap's ability to synthesize/debug
+            trigger-action programs, we want to decouple the influence from the interface.
+            <ul>
+                <li>Some participants thought of "Current Temperature" as the "Temperature Setting" in
+                    their rules/properties, but "Current Temperature" is an external status which can't be controlled.
+                    We corrected this in our data.
+                </li>
+                <li>
+                    One type of properties says "Event should always happen WHILE ...". Actually, AutoTap don't need to
+                    synthesize rules from them, as they are trigger-action programs by themselves. Therefore, we don't
+                    send those types of properties into AutoTap.
+                </li>
+                <li>
+                    Two participants didn't use "Genre" to specify the statement "Amazon Echo is playing pop music", but
+                    tried to type in "pop" as the music name. This led to "Amazon Echo is playing the music named
+                    'pop'". We replaced it with the correct statement.
+                </li>
+            </ul>
+        </li>
+        <li>
+            In some cases, although AutoTap finds a solution, the interface could not present it. This is because we
+            design the interface and AutoTap in two different tracks, and their expressiveness is not exactly consistent.
+            For example, the interface could not express "a variable fall into a range" ("thermostat is set between 70F
+            and 80F"). It also couldn't specify ">=" or "<=", which may appear in AutoTap's patches.
+        </li>
+    </ul>
+</p>
+</body>
+</html>

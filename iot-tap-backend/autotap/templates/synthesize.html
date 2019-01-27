@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Synthesize</title>
+</head>
+<body>
+    Please select the user and task you want to test.
+    <form action="/autotap/synthesize/" method="post">
+        <select name="user_task" size="30">
+            {% for ut in user_task_list %}
+                <option value="{{ ut }}">{{ ut }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <input type="submit" name="action" value="Submit">
+        <br>
+        <input type="submit" name="action" value="Test All">
+    </form>
+</body>
+</html>
