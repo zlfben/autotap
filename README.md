@@ -12,9 +12,9 @@ This is the artifact for “Synthesizing and Repairing Trigger-Action Programs U
 No specific knowledge from the reviewers is assumed as our application aims at novice users. 
 
 # The AutoTap software
-The software AutoTap is for novice end-users to create and modify trigger-action programs (TAP) for smart devices at home. It allows users to input natural-language-based properties they want in their smart home. AutoTap tells whether a provided TAP program satisfies the specified properties; if not, AutoTap synthesizes TAP programs or program modifications to satisfy the properties. 
+The software AutoTap is for novice end-users to create and modify trigger-action programs (TAP) for smart devices at home. It allows users to specify properties they want in their smart home through an easy click-only interface. AutoTap tells whether a provided TAP program satisfies the specified properties; if not, AutoTap synthesizes TAP programs or program modifications to satisfy the properties. 
 
-This repository consists of AutoTap as a web-application. There are three components - the database, the backend and the frontend - that supports this web-application. The following instructions will show how to set up a local server and play with AutoTap.
+This repository consists of AutoTap as a web-application. There are three components - the database, the backend, and the frontend - that supports this web-application. The following instructions will show how to set up a local server and play with AutoTap.
 
 ## Setting up the AutoTap web application
 First, follow the instructions in [INSTALL.md](INSTALL.md) in order to build the docker images for the three components.
@@ -74,11 +74,9 @@ This example shows how to user AutoTap to debug current rules to satisfy "AC is 
 We can see that comparing to the results in example 1, there will only be two options. In both of them, The behavior of the original rule is preserved.
 
 # The user-study data
-We provide the data collected from our two user studies, including the tasks we asked participants to achieve in smart home, properties written by participants, TAP rules written by participants, etc. Moreover, instructions on reproducing the synthesizing and debugging results in our paper are also provided. 
+We provide the data collected from our two user studies, including the tasks we asked participants to achieve in smart home, properties written by participants, TAP rules written by participants, etc.
 
-We don't publish all of our user study data. Some of them were collected when we were still in our final round of piloting. The question about data releasing 
-was added after that. Therefore, we believed that we should not release their data until we got their permissions. We deleted data from 27 out of 78 participants because 
-of this reason. For the other 51 users who opted-in to publish their data, we use "p1", "p2", ... "p51" to represent them in our database.
+Note that some of our user-study participants did not give our permission for releasing their answers. Consequently, we deleted their data from this public release package. For the remaining users who opted-in to publish their data, we use "p1", "p2", ... "p51" to represent them in our database.
 
 ## Accessing user study data
 Data of both user study 1 and user study 2 mentioned in our paper is in the spreadsheets.
@@ -88,7 +86,7 @@ data/"Data - User Study 2.xlsx"
 ```
 ### Data - User Study 1
 Data from User Study reported in Section III.
- - Result: data from the survey (discarded data is not included in this sheet)
+ - Result: data from the survey
  - Discarded Data: data from participants who gave off-topic answers or reported having no smart devices in the survey
 
 NOTE:
