@@ -39,7 +39,7 @@ Note that we use two fields to identify a workspace: username and task id, where
 
 Note that our webpage was originally designed for large screen. If the content doesn't show well on your browser, please make the window bigger or zoom out the webpage (to 60%, for example).
 
-For a more detailed tutorial, please read our user study [survey](./data/survey.pdf), which contains tutorials for creating both rules and properties.
+For a more detailed tutorial, please read our user study [survey](./data/survey.pdf), which contains tutorials for creating both rules and properties. You can also go check [this video](https://youtu.be/gAtLgqD2yHQ) for a video tutorial (with captions on).
 
 ## Example 1 (Synthesizing rules)
 This example shows how to use AutoTap to synthesize rules to satisfy "AC is on and bedroom window is open should not be active together".
