@@ -25,14 +25,12 @@ Then from the root directory of this project:
 ```console
 user@host:/path/to/this/repo$ docker-compose up
 ```
-It will take time for the database to initialize if it is set up for the first time. During this time, the backend will show something like this repeatly:
+It may take time for the database to initialize if it is set up for the first time. During this time, the backend will show something like this repeatly:
 ```
 backend_1   | DB unavailable - sleeping
 ```
-Please allow 20 seconds (if typical SSD is used) to 3 minute (if HDD is used) for the database to initialize. Once this process finished, you'll see the following output on the screen:
-```
-backend_1   | DB up - execute
-```
+Please allow 10 seconds (if typical SSD is used) to 3 minute (if HDD is used) for the database to initialize. Once this process finished, the console output will be stable and show that frontend and backend are listening to requests.
+
 You can access the following url with your browser to check AutoTap's interface. 
 ```
 localhost:4200/user/1
