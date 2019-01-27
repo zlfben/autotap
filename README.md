@@ -12,9 +12,9 @@ This is the artifact for “Synthesizing and Repairing Trigger-Action Programs U
 No specific knowledge from the reviewers is assumed as our application aims at novice users. 
 
 # The AutoTap software
-The software AutoTap is for novice end-users to create and modify trigger-action programs (TAP) for smart devices at home. It allows users to input natural-language-based properties they want in their smart home. AutoTap tells whether a provided TAP program satisfies the specified properties; if not, AutoTap synthesizes TAP programs or program modifications to satisfy the properties. 
+The software AutoTap is for novice end-users to create and modify trigger-action programs (TAP) for smart devices at home. It allows users to specify properties they want in their smart home through a click-only interface. It then automatically tells whether a provided TAP program, if any, satisfies the specified properties; if not, AutoTap synthesizes TAP programs or program modifications to satisfy the properties. 
 
-This repository consists of AutoTap as a web-application. There are three components - the database, the backend and the frontend - that supports this web-application. The following instructions will show how to set up a local server and play with AutoTap.
+This repository consists of AutoTap as a web-application. There are three components - the database, the backend, and the frontend - that supports this web-application. The following instructions will show how to set up a local server and play with AutoTap.
 
 ## Setting up the AutoTap web application
 First, follow the instructions in [INSTALL.md](INSTALL.md) in order to build the docker images for the three components.
