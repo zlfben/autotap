@@ -40,6 +40,9 @@ localhost:4200/user/1
 Note that we use two fields to identify a workspace: username and task id, where username is a string and task id is a number. In the above example, "user" is the username and "1" is the task id. In general, you can use "localhsot:4200/\<username\>/\<task id\>localhsot:4200/\<username\>/\<task id\>" to retrieve properties and rules you've written in that workspace.
 
 Note that our webpage was originally designed for large screen. If the content doesn't show well on your browser, please make the window bigger or zoom out the webpage (to 60%, for example).
+
+For a more detailed tutorial, please read our user study [survey](./data/survey.pdf), which contains tutorials for creating both rules and properties.
+
 ## Example 1 (Synthesizing rules)
 This example shows how to use AutoTap to synthesize rules to satisfy "AC is on and bedroom window is open should not be active together".
 
