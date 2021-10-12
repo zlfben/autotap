@@ -6,7 +6,7 @@ USER root
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
 RUN apt update --fix-missing
-RUN apt install -y curl build-essential libssl-dev
+RUN apt update && apt install -y curl build-essential libssl-dev
 RUN groupadd -g 1001 -r superifttt && useradd --no-log-init -r -u 1001 -g superifttt superifttt && mkhomedir_helper superifttt
 
 ENV NVM_DIR /home/superifttt/.nvm
